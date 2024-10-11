@@ -5,16 +5,16 @@ USE accident;
 CREATE TABLE ACCIDENT(
 	accident_idx INT AUTO_INCREMENT PRIMARY KEY,
     si_idx INT,
-    gungu_idx INT,
+    sigungu_name INT,
     death_idx INT,
     national_road_province INT,
     special_metropolitan_city INT,
     city_county INT,
     high_speed_national_highway INT,
     etc INT,
-    CONSTRAINT fk_si_dix foreign key(si_idx) references siTable(si_idx) ON DELETE CASCADE,
-    CONSTRAINT fk_gungu_idx foreign key(gungu_idx) references gunguTable(gungu_idx) ON DELETE CASCADE,
-    CONSTRAINT fk_death_idx foreign key(death_idx) references deathTable(death_idx) ON DELETE CASCADE
+    CONSTRAINT fk_si_dix foreign key(si_idx) references sido(si_idx) ON DELETE CASCADE,
+    CONSTRAINT fk_sigungu_name foreign key(sigungu_name) references sigungu(sigungu_idx) ON DELETE CASCADE,
+    CONSTRAINT fk_death_idx foreign key(death_idx) references death_type(d_idx) ON DELETE CASCADE
 );
 
 
