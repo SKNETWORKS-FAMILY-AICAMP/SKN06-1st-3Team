@@ -13,9 +13,16 @@ class CARDao:
 
     def get_connection(_self) -> pymysql.Connection:
         return pymysql.connect(host=_self.host, port=_self.port, user=_self.user, password=_self.password, db=_self.db)
-    
-    def insert_accident_data(_self):
-        return True
+        
+    def insert_accident_data(_self, data):
+        insert_sql = """insert into accident (accident_idx, si_idx, sigungu_name, death_idx, national_road_province, special_metropolitan_city, 
+        city_county, high_speed_national_highway, etc) values(%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        with _self.get_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.executemany(insert_sql, data)
+                conn.commit()
+        print("사고 수:", len(data))
+        print("삽입된 값들:", data)
 
 
     def insert_sido (_self, data) :
