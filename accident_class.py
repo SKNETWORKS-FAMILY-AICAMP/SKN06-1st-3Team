@@ -36,17 +36,15 @@ class CARDao:
 
     def insert_sigungu(_self, data) :
         f_sql = "SELECT si_idx FROM sido WHERE location = %s"
-        
         sql = "INSERT INTO sigungu (sigungu_name, si_idx) VALUES (%s, %s)"
         with _self.get_connection() as conn:
             with conn.cursor() as cursor:
                 for i in data :
                     cursor.execute(f_sql, i[0])
                     si_idx = cursor.fetchone()[0]
-
-                    cnt = cursor.execute(sql)  # executemany() 결과 행수 반환.
                     
-                    
-        
-        # print("insert된 총 행수:", cnt)
+                    arr_data = [i[1], si_idx]
+                    cursor.execute(sql, arr_data)
+                    conn.commit()
+                
         
