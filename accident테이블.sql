@@ -19,13 +19,13 @@ CREATE TABLE ACCIDENT(
 
 
 CREATE TABLE Category(
-	category_idx INT AUTO_INCREMENT PRIMARY KEY,
-    classification VARCHAR(100)
+    category VARCHAR(100) PRIMARY KEY
 );
+
 CREATE TABLE FAQ(
 	fa_idx INT AUTO_INCREMENT PRIMARY KEY,
-    category_idx INT,
-    title VARCHAR(100),
-    content VARCHAR(255),
-    CONSTRAINT fk_category_idx foreign key(category_idx) references Category(category_idx) ON DELETE CASCADE
+    category varchar(100),
+    title VARCHAR(255),
+    content TEXT,
+    CONSTRAINT fk_category foreign key(category) references Category(category) ON DELETE CASCADE
 );
