@@ -1,6 +1,6 @@
 import pymysql
-from FAQ.crawling import crawl_data 
-import hyundai_crawl as hyundai
+from .crawling import crawl_data 
+from .hyundai_crawl import hyundai_crawl
 
 class FAQDao:
     def __init__(self, host:str, port:int, user:str, password:str, db:str):
@@ -90,7 +90,7 @@ class FAQDao:
         return result
 
     def faq_data_hyundai(self):
-        crawled_data = hyundai.hyundai_crawl()
+        crawled_data = hyundai_crawl()
         # crawling한 데이터 category만 추출
         category = list(set([faq[0] for faq in crawled_data]))
         # category Table에 데이터 삽입
@@ -119,39 +119,73 @@ class FAQDao:
             with conn.cursor() as cursor:
                 cursor.execute(sql)
                 return cursor.fetchall()
-
-    def select_faq_by_category(self, category:str):
+    def select_count_category(self, category):
         sql = """
-        SELECT c.category, f.title, f.content 
-        FROM category c 
+        SELECT COUNT(*) FROM category c
         JOIN faq f ON c.category_idx = f.category_idx
-        WHERE c.category LIKE %s
+        WHERE c.category = %s
+        group by c.category
         """
         with self.get_connection() as conn:
             with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-                cursor.execute(sql, [f'%{category}%'])
-                result = cursor.fetchall()
-                return result    
-
-    def select_faq_by_title(self, title:str):
-        sql = """
+                cursor.execute(sql, category)
+                return cursor.fetchone()
+    def select_faq_by_category(self, category:str,limit, offset):
+        sql = f"""
         SELECT c.category, f.title, f.content 
         FROM category c 
         JOIN faq f ON c.category_idx = f.category_idx
-        WHERE f.title LIKE %s
+        WHERE c.category = %s LIMIT {limit} OFFSET {offset}
+        """
+        with self.get_connection() as conn:
+            with conn.cursor(pymysql.cursors.DictCursor) as cursor:
+                cursor.execute(sql, [{category}])
+                
+                return cursor.fetchall()   
+
+    def select_faq_by_title(self, title:str,limit, offset):
+        sql = f"""
+        SELECT c.category, f.title, f.content 
+        FROM category c 
+        JOIN faq f ON c.category_idx = f.category_idx
+        WHERE f.title LIKE %s LIMIT {limit} OFFSET {offset}
         """
         with self.get_connection() as conn:
             with conn.cursor(pymysql.cursors.DictCursor) as cursor:
                 cursor.execute(sql, [f'%{title}%'])
                 result = cursor.fetchall()
                 return result
-    def select_count_category(self):
+   
+    def select_count_title(self, title):
         sql = """
-        select c.category ,count(*)  from faq f 
-        join category c ON c.category_idx = f.category_idx 
-        group by c.category_idx"""
+        SELECT COUNT(*) FROM faq
+        WHERE title LIKE %s
+        """
         with self.get_connection() as conn:
             with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-                cursor.execute(sql)
-                return cursor.fetchall()
+                cursor.execute(sql, [f'%{title}%'])
+                return cursor.fetchone()
+
+    def select_faq_by_content(self, content:str,limit, offset):
+        sql = f"""
+        SELECT c.category, f.title, f.content 
+        FROM category c 
+        JOIN faq f ON c.category_idx = f.category_idx
+        WHERE f.content LIKE %s LIMIT {limit} OFFSET {offset}
+        """
+        with self.get_connection() as conn:
+            with conn.cursor(pymysql.cursors.DictCursor) as cursor:
+                cursor.execute(sql, [f'%{content}%'])
+                result = cursor.fetchall()
+                return result
+   
+    def select_count_content(self, content):
+        sql = """
+        SELECT COUNT(*) FROM faq
+        WHERE content LIKE %s
+        """
+        with self.get_connection() as conn:
+            with conn.cursor(pymysql.cursors.DictCursor) as cursor:
+                cursor.execute(sql, [f'%{content}%'])
+                return cursor.fetchone()
         
