@@ -1,6 +1,7 @@
 import streamlit as st
 import faq_class as FAQDao
 import configparser as parser
+import /accident_class as CARDao
 
 def get_dao():
     props = parser.ConfigParser() # parser 생성
@@ -12,6 +13,15 @@ def get_dao():
 
 dao = get_dao()
 
+
+cars = CARDao(
+    mysql_config['host'],
+    3306, 
+    mysql_config['user'],
+    mysql_config['password'],
+    mysql_config['db']
+)
+
 st.set_page_config(page_title="SK06_01_3Tim")
 
 
@@ -20,7 +30,10 @@ by = st.sidebar.radio("목록", ["FAQ","DATA"])
 if by == "FAQ":
     
     st.dataframe(dao.select_faq(), use_container_width=True)
-    
+
+elif by == "DATA" :
+
+    st.dataframe(cars.select_all_data(), use_container_width=True)
 
 # v1 = st.sidebar.slider("X", 1, 10)
 # st.write("선택된 값: ", f"**{v1}**")
