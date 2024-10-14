@@ -36,7 +36,6 @@ def crawl_data():
             for contxt in panel_texts:
                 content += contxt + '\n'
             search_names.append([category, title, content])
-
         return search_names
 
     else:
