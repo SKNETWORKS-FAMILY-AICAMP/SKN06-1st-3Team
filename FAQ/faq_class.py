@@ -1,5 +1,5 @@
 import pymysql
-from crawling import crawl_data 
+from FAQ.crawling import crawl_data 
 
 class FAQDao:
     def __init__(self, host:str, port:int, user:str, password:str, db:str):

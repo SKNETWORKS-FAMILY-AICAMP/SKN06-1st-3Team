@@ -1,7 +1,7 @@
 import streamlit as st
-import faq_class as FAQDao
+import FAQ.faq_class as FAQDao
 import configparser as parser
-import /accident_class as CARDao
+import accident_class as CARDao
 
 def get_dao():
     props = parser.ConfigParser() # parser 생성
