@@ -1,5 +1,6 @@
 import pymysql
 from FAQ.crawling import crawl_data 
+import hyundai_crawl as hyundai
 
 class FAQDao:
     def __init__(self, host:str, port:int, user:str, password:str, db:str):
@@ -78,6 +79,18 @@ class FAQDao:
 
     def faq_data(self):
         crawled_data = crawl_data() 
+        # crawling한 데이터 category만 추출
+        category = list(set([faq[0] for faq in crawled_data]))
+        # category Table에 데이터 삽입
+        result = self.insert_category(category)
+        # FAQ Table에 데이터 삽입
+        result2 = self.insert_faq(crawled_data)
+        # 결과 행수 더하기
+        result = result + result2
+        return result
+
+    def faq_data_hyundai(self):
+        crawled_data = hyundai.hyundai_crawl()
         # crawling한 데이터 category만 추출
         category = list(set([faq[0] for faq in crawled_data]))
         # category Table에 데이터 삽입
