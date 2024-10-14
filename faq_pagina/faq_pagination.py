@@ -17,7 +17,7 @@ def get_category_options(dao):
 def display_faq_section(dao):
     search_type_option = st.selectbox(
         label="검색 종류",
-        options=["전체 조회", "카테고리 검색", "제목 검색", "내용으로 검색"]
+        options=["선택하기","전체 조회", "카테고리 검색", "제목 검색", "내용으로 검색"]
     )
 
     if search_type_option == "전체 조회":
@@ -44,21 +44,18 @@ def display_faq_section(dao):
                 st.write(faq[2])  # content는 faq[2]에 저장되어 있을 것
 
     elif search_type_option == "카테고리 검색":
-        # 카테고리 선택
         category_options = get_category_options(dao)
         selected_category = st.selectbox("카테고리 선택", category_options)
 
         if selected_category:
-            # 선택된 카테고리의 전체 FAQ 수를 가져옴
             total_faqs = dao.select_count_category(selected_category)['COUNT(*)']
             items_per_page = 10
-            total_pages = max((total_faqs // items_per_page) + 1, 1)  # 최소 페이지 수는 1
+            total_pages = max((total_faqs // items_per_page) + 1, 1)
 
-            # 페이지가 1개 이상일 때만 슬라이더 표시
             if total_pages > 1:
                 page = st.slider("Page", 1, total_pages)
             else:
-                page = 1  # 페이지가 1개라면 슬라이더 없이 1로 설정
+                page = 1 
 
             offset = (page - 1) * items_per_page
 
@@ -68,10 +65,9 @@ def display_faq_section(dao):
             # 결과 표시
             st.markdown(f"**{selected_category}** 카테고리 - 페이지 {page}/{total_pages} - {len(faqs)}개 (총 {total_faqs}개)")
 
-            # 데이터를 테이블로 표시하지 않고, category와 title을 expander로 표시
             for faq in faqs:
-                with st.expander(f"{faq['category']} - {faq['title']}"):  # category와 title에 각각 접근
-                    st.write(faq['content'])  # content에 접근 # content는 faq[2]에 저장되어 있을 것
+                with st.expander(f"{faq['category']} - {faq['title']}"): 
+                    st.write(faq['content'])
 
     elif search_type_option == "제목 검색":
         # select_count_title, select_faq_by_title
@@ -88,10 +84,10 @@ def display_faq_section(dao):
             title = dao.select_faq_by_title(input_content, limit=items_per_page, offset=offset)
             st.markdown(f"**{input_content}** 제목 - 페이지 {page}/{total_pages} - {len(title)}개 (총 {total_title}개)")
 
-            # 데이터를 테이블로 표시하지 않고, category와 title을 expander로 표시
+  
             for faq in title:
-                with st.expander(f"{faq['category']} - {faq['title']}"):  # category는 faq[0], title은 faq[1]
-                    st.write(faq['content'])  # content는 faq[2]에 저장되어 있을 것
+                with st.expander(f"{faq['category']} - {faq['title']}"): 
+                    st.write(faq['content']) 
     elif search_type_option == "내용으로 검색":
         input_content = st.text_input("내용으로 검색")
         if input_content:
@@ -106,7 +102,6 @@ def display_faq_section(dao):
             content = dao.select_faq_by_content(input_content, limit=items_per_page, offset=offset)
             st.markdown(f"**{input_content}** 제목 - 페이지 {page}/{total_pages} - {len(content)}개 (총 {total_content}개)")
 
-            # 데이터를 테이블로 표시하지 않고, category와 title을 expander로 표시
             for faq in content:
-                with st.expander(f"{faq['category']} - {faq['title']}"):  # category는 faq[0], title은 faq[1]
-                    st.write(faq['content'])  # content는 faq[2]에 저장되어 있을 것
+                with st.expander(f"{faq['category']} - {faq['title']}"): 
+                    st.write(faq['content']) 
