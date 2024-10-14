@@ -88,13 +88,18 @@ class FAQDao:
         result = result + result2
         return result
 
-    def select_faq(self):
-        sql = "select c.category, f.title, f.content from faq f join category c ON c.category_idx = f.category_idx"
+    def select_faq(self,limit, offset):
+        sql = f"select c.category, f.title, f.content from faq f join category c ON c.category_idx = f.category_idx LIMIT {limit} OFFSET {offset}"
         with self.get_connection() as conn:
             with conn.cursor() as cursor:
                 cursor.execute(sql)
                 return cursor.fetchall()
-
+    def select_faq_count(self):
+        sql_count = "select count(1) from faq"
+        with self.get_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(sql_count)
+                return cursor.fetchone()
     def select_category(self):
         sql = "select category from category"
         with self.get_connection() as conn:
@@ -127,3 +132,13 @@ class FAQDao:
                 cursor.execute(sql, [f'%{title}%'])
                 result = cursor.fetchall()
                 return result
+    def select_count_category(self):
+        sql = """
+        select c.category ,count(*)  from faq f 
+        join category c ON c.category_idx = f.category_idx 
+        group by c.category_idx"""
+        with self.get_connection() as conn:
+            with conn.cursor(pymysql.cursors.DictCursor) as cursor:
+                cursor.execute(sql)
+                return cursor.fetchall()
+        
