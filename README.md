@@ -52,7 +52,7 @@
 
 ### 프로젝트 결과 (최종 Streamlit UI)
 - 메인 페이지
-<img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" 
+<img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" />
 
 - 교통사고 데이터 조회 페이지
 <img src= "https://github.com/user-attachments/assets/a3c72ea6-79fd-49fa-9a22-337099c6d416" alt="데이터조회" width="600" height="320" />
