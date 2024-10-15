@@ -42,7 +42,7 @@
 
 ### ERD 🐾
 
-<img src="https://github.com/user-attachments/assets/a4f1c1ad-8851-4a03-9926-f3b0a843747c" alt="ERD" width="610" height="600" />
+<img src="https://github.com/user-attachments/assets/a4f1c1ad-8851-4a03-9926-f3b0a843747c" alt="ERD" width="600" height="400" />
 
 <hr>
 
