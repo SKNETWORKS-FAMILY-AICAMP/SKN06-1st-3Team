@@ -71,4 +71,15 @@ class CARDao:
                 cursor.execute(f_sql, acc_level)
                 d_idx = cursor.fetchone()
         return d_idx
-        
+
+    def select_all_data() :
+        sql = '''select location, sigungu_name, acc_level, normal_road , national_road_province, special_metropolitan_city, city_county, high_speed_national_highway, etc from  accident a 
+                join sido s on s.si_idx = a.si_idx 
+                join sigungu s2 on s2.sigungu_idx = a.sigungu_idx 
+                join death_type dt on dt.d_idx = a.death_idx
+                order by a.accident_idx ASC'''
+        with _self.get_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(f_sql, acc_level)
+                res = cursor.fetchall()
+        return res
