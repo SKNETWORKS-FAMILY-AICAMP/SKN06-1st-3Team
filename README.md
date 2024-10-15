@@ -17,13 +17,13 @@ SK Networks AI CAMP 6기
 해당 프로젝트는 시도 및 시군구별 도로 종류에 따른 교통사고 데이터를 조회하고, 자동차 기업의 FAQ를 함께 제공하는 시스템을 구축하는 것을 목표로 한다. 교통사고 데이터 분석을 통해 사용자는 특정 지역과 도로에서 발생하는 사고 통계를 조회할 수 있으며, 자동차 기업의 FAQ 조회 기능을 통해 차량 안전과 관련된 질문에 대한 답변을 쉽게 찾을 수 있다. 이 두 기능은 교통사고와 자동차 안전 정보를 통합하여 사용자에게 보다 종합적인 교통 안전 및 차량 관련 정보를 제공하는 데 중점을 둔다.
 
 ### 기술 스택 ✨
-<div>
-  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
-  <img src="https://img.shields.io/badge/streamlit%20-%23FF0000.svg?style=for-the-badge&logo=streamlit&logoColor=white">
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/>
-</div>
+    <div>
+        <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white"/>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=Discord&logoColor=white">
+        <img src="https://img.shields.io/badge/Github-181717?style=flat&logo=Github&logoColor=white">
+        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white"/>
+    </div>
 
 ### 기능 소개 📱
 1) 시도, 시군구별 도로 종류에 따른 교통사고 데이터 조회 시스템 제공
