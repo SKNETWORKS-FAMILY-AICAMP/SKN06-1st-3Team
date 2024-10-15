@@ -78,13 +78,8 @@
 
 <br/>
 
+<div style="width=500px">
 ```bash
-<style>
-  pre {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-</style>
 C:.
 │  .DS_Store
 │  .gitignore
@@ -159,6 +154,9 @@ C:.
         hyundai_FAQ_ca_an.ipynb
         question.csv
 ```
+        
+</div>
+
 
 <br/>
 
