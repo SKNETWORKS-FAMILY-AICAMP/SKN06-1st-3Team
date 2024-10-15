@@ -1,7 +1,7 @@
 import pymysql
 from .crawling import crawl_data 
 from .hyundai_crawl import hyundai_crawl
-
+from .kia import kias
 class FAQDao:
     def __init__(self, host:str, port:int, user:str, password:str, db:str):
         self.host = host
@@ -100,7 +100,19 @@ class FAQDao:
         # 결과 행수 더하기
         result = result + result2
         return result
-
+        
+    def faq_data_kia(self):
+        crawled_data = kias()
+        # crawling한 데이터 category만 추출
+        category = list(set([faq[0] for faq in crawled_data]))
+        # category Table에 데이터 삽입
+        result = self.insert_category(category)
+        # FAQ Table에 데이터 삽입
+        result2 = self.insert_faq(crawled_data)
+        # 결과 행수 더하기
+        result = result + result2
+        return result
+        
     def select_faq(self,limit, offset):
         sql = f"select c.category, f.title, f.content from faq f join category c ON c.category_idx = f.category_idx LIMIT {limit} OFFSET {offset}"
         with self.get_connection() as conn:
