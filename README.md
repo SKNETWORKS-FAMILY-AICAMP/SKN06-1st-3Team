@@ -2,7 +2,6 @@
 <div align="center">
 
 </div>
-![박창규](https://github.com/user-attachments/assets/5c527f33-fa36-4c14-b6b3-a9594abe0425)
 
 # 지역별 교통사고 데이터 조회 시스템 🚗
 > **SK Networks AI CAMP 6기** <br/> **개발기간: 2024.10.11 ~ 2024.10.15 (총 5일)**
@@ -14,7 +13,7 @@
 SK Networks AI CAMP 6기
 | 성은진 | 박창규 | 공인용 | 김지영 |
 |:----------:|:----------:|:----------:|:----------:|
-| <img src="https://github.com/user-attachments/assets/711c6a05-31c3-43ba-b791-9b5c218144e3" alt="성은진" width="145" height="165" />  | <img src="https://github.com/user-attachments/assets/5c527f33-fa36-4c14-b6b3-a9594abe0425" alt="박창규" width="150" height="150" />  |  | <img src="https://github.com/user-attachments/assets/bab22e54-d0ba-4a1a-9e30-1fc6b497b651" alt="김지영" width="150" height="150" />|
+| <img src="https://github.com/user-attachments/assets/711c6a05-31c3-43ba-b791-9b5c218144e3" alt="성은진" width="145" height="165" />  | <img src="https://github.com/user-attachments/assets/5c527f33-fa36-4c14-b6b3-a9594abe0425" alt="박창규" width="150" height="150" />  | <img src="https://github.com/user-attachments/assets/5179910a-50f5-4ec5-b23c-b90515c17cd1" alt="공인용" width="150" height="150" | <img src="https://github.com/user-attachments/assets/bab22e54-d0ba-4a1a-9e30-1fc6b497b651" alt="김지영" width="150" height="150" />|
 | [@eunjinn05](https://github.com/eunjinn05) | [@Gumbeng](https://github.com/Gumbeng) | [@k348693](https://github.com/k348693) | [@yeong-ee](https://github.com/yeong-ee) |
 
 <hr>
