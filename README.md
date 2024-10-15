@@ -78,6 +78,7 @@
 
 <br/>
 
+```bash
 C:.
 │  .DS_Store
 │  .gitignore
@@ -151,6 +152,7 @@ C:.
         crawl.py
         hyundai_FAQ_ca_an.ipynb
         question.csv
+```
 
 <br/>
 
