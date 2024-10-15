@@ -5,7 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
-import plotly.figure_factory as ff
 
 def car_dao():
     props = parser.ConfigParser()  # Parser객체 생성
@@ -46,26 +45,54 @@ def display_accident(car_dao):
         
         st.dataframe(total_accident, height=800, width=1300, column_config={"0": sido,"1":sigungu,'2':death_type,'3':road1, '4':road2, '5':road3, '6':road4, '7':road5, '8':road6})
     elif search_type_option == "그래프 조회" :
-        
-        df = pd.read_csv("./accident__.csv", header=[1], thousands=',')
-        
-        plt.figure()
-        rc('font', family='AppleGothic')
+        make_graph_img()
 
 
-        # Add histogram data
-        group1 = df.groupby(['시도'])['일반국도'].sum()
-        group2 = df.groupby(['시도'])['지방도'].sum()
-        group3 = df.groupby(['시도'])['특별광역시도'].sum()
-        
-        # Group data together
-        hist_data = [group1, group2, group3]
-        
-        group_labels = ['Group 1', 'Group 2', 'Group 3']
-        
-        # Create distplot with custom bin_size
-        fig = ff.create_distplot(
-                hist_data, group_labels, bin_size=[.1, .25, .5])
-        
-        # Plot!
-        st.plotly_chart(fig, use_container_width=True)
+def make_graph_img() :
+    plt.figure()        
+    df = pd.read_csv("./accident__.csv", header=[1], thousands=',')
+    rc('font', family='AppleGothic')
+
+    f, axes = plt.subplots(3, 2)
+    f.set_size_inches((20, 15))
+    plt.subplots_adjust(wspace = 0.3, hspace = 0.3)
+
+
+    groups1 = df.groupby(['시도'])['일반국도'].sum()
+    axes[0, 0].plot(groups1, alpha = 0.5, color='green')
+    axes[0, 0].set_yticks(range(0, 40000, 2000))
+    axes[0, 0].legend(['일반 국도 사고'])
+
+    groups2 = df.groupby(['시도'])['지방도'].sum()
+    
+    axes[0, 1].plot(groups2, alpha = 0.5, color='green')
+    axes[0, 1].set_yticks(range(0, 10000, 2000))
+    axes[0, 1].legend(['지방도 사고'])
+    
+    groups3 = df.groupby(['시도'])['특별광역시도'].sum()
+    
+    axes[1, 0].plot(groups3, alpha = 0.5, color='green')
+    axes[1, 0].set_yticks(range(0, 90000, 5000))
+    axes[1, 0].legend(['특별광역시도 사고'])
+    
+    groups4 = df.groupby(['시도'])['시군도'].sum()
+    
+    axes[1, 1].plot(groups4, alpha = 0.5, color='green')
+    axes[1, 1].set_yticks(range(0, 70000, 5000))
+    axes[1, 1].legend(['시군도 사고'])
+    
+    groups5 = df.groupby(['시도'])['시군도'].sum()
+    
+    axes[2, 0].plot(groups5, alpha = 0.5, color='green')
+    axes[2, 0].set_yticks(range(0, 70000, 5000))
+    axes[2, 0].legend(['고속국도 사고'])
+    
+    groups6 = df.groupby(['시도'])['기타'].sum()
+    
+    axes[2, 1].plot(groups6, alpha = 0.5, color='green')
+    axes[2, 1].set_yticks(range(0, 15000, 2000))
+    axes[2, 1].legend(['기타 사고'])
+
+    plt.savefig("graph.png")
+    st.image('./graph.png')
+    
