@@ -74,7 +74,7 @@
 
 <br/>
 
-### 프로젝트 결과 (최종 Streamlit UI)
+### 프로젝트 결과 (최종 Streamlit UI) ☄️
 - 메인 페이지
 <img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" />
 
