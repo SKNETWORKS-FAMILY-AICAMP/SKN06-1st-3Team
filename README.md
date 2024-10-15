@@ -79,7 +79,8 @@
 <br/>
 
 <div style="width=500px">
-```bash
+```
+bash
 C:.
 │  .DS_Store
 │  .gitignore
