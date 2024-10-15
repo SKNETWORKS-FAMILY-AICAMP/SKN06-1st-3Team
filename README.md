@@ -79,6 +79,12 @@
 <br/>
 
 ```bash
+<style>
+  pre {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+</style>
 C:.
 │  .DS_Store
 │  .gitignore
