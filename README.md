@@ -40,6 +40,13 @@
 
 <hr>
 
+### ERD 🐾
+
+<img src="https://github.com/user-attachments/assets/30c5bea0-b3fe-468a-b0ee-f6b0818fd19f" alt="ERD" width="600" height="320" />
+
+
+<hr>
+
 ### 프로젝트 결과 (최종 Streamlit UI)
 - 메인 페이지
 <img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" />
