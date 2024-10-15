@@ -52,7 +52,16 @@
 
 ### 프로젝트 결과 (최종 Streamlit UI)
 - 메인 페이지
-<img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" />
+<img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" width="600" height="320" 
+
+- 교통사고 데이터 조회 페이지
+<img src= "https://github.com/user-attachments/assets/a3c72ea6-79fd-49fa-9a22-337099c6d416" alt="데이터조회" width="600" height="320" />
+
+- 교통사고 데이터 조회 > 전체 조회 페이지
+<img src= "https://github.com/user-attachments/assets/3bb3b022-4db3-4693-a720-a2d2b46aa913" alt="데이터전체조회" width="600" height="320" />
+
+- 교통사고 데이터 조회 > 그래프 조회 페이지
+<img src= "https://github.com/user-attachments/assets/93084bf0-9bd3-4b89-82d7-5b437b9dacc8" alt="데이터그래프조회" width="600" height="320" />
 
 - 자동차 관련 FAQ 조회 페이지
 <img src= "https://github.com/user-attachments/assets/9f449d8e-18a2-4161-b59a-22af5c4cbfe7" alt="FAQ조회" width="600" height="320" />
