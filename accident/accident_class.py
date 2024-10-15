@@ -2,6 +2,11 @@
 import pymysql
 import pymysql.cursors
 
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import rc
+import numpy as np
+
 class CARDao:
     def __init__(_self, host:str, port:int, user:str, password:str, db:str):
         _self.host = host
@@ -72,7 +77,7 @@ class CARDao:
                 d_idx = cursor.fetchone()
         return d_idx
 
-    def select_all_data() :
+    def select_all_data(_self) :
         sql = '''select location, sigungu_name, acc_level, normal_road , national_road_province, special_metropolitan_city, city_county, high_speed_national_highway, etc from  accident a 
                 join sido s on s.si_idx = a.si_idx 
                 join sigungu s2 on s2.sigungu_idx = a.sigungu_idx 
@@ -80,6 +85,70 @@ class CARDao:
                 order by a.accident_idx ASC'''
         with _self.get_connection() as conn:
             with conn.cursor() as cursor:
-                cursor.execute(f_sql, acc_level)
+                cursor.execute(sql)
                 res = cursor.fetchall()
         return res
+
+    def select_graph(_self) :
+        df = pd.read_csv("./accident__.csv", header=[1], thousands=',')
+        
+        plt.figure()
+        rc('font', family='AppleGothic')
+
+
+        # Add histogram data
+        groups1 = df.groupby(['시도'])['일반국도'].sum()
+        groups2 = df.groupby(['시도'])['지방도'].sum()
+        groups3 = df.groupby(['시도'])['특별광역시도'].sum()
+        
+        # Group data together
+        hist_data = [group1, group2, group3]
+        
+        group_labels = ['Group 1', 'Group 2', 'Group 3']
+        
+        # Create distplot with custom bin_size
+        fig = ff.create_distplot(
+                hist_data, group_labels, bin_size=[.1, .25, .5])
+        
+        # Plot!
+        st.plotly_chart(fig, use_container_width=True)
+
+        
+        # groups1 = df.groupby(['시도'])['일반국도'].sum()
+        
+        # axes[0, 0].plot(groups1, alpha = 0.5, color='green')
+        # axes[0, 0].set_yticks(range(0, 40000, 2000))
+        # axes[0, 0].legend(['일반 국도 사고'])
+        
+        # groups2 = df.groupby(['시도'])['지방도'].sum()
+        
+        # axes[0, 1].plot(groups2, alpha = 0.5, color='green')
+        # axes[0, 1].set_yticks(range(0, 10000, 2000))
+        # axes[0, 1].legend(['지방도 사고'])
+        
+        # groups3 = df.groupby(['시도'])['특별광역시도'].sum()
+        
+        # axes[1, 0].plot(groups3, alpha = 0.5, color='green')
+        # axes[1, 0].set_yticks(range(0, 90000, 5000))
+        # axes[1, 0].legend(['특별광역시도 사고'])
+        
+        # groups4 = df.groupby(['시도'])['시군도'].sum()
+        
+        # axes[1, 1].plot(groups4, alpha = 0.5, color='green')
+        # axes[1, 1].set_yticks(range(0, 70000, 5000))
+        # axes[1, 1].legend(['시군도 사고'])
+        
+        # groups5 = df.groupby(['시도'])['시군도'].sum()
+        
+        # axes[2, 0].plot(groups5, alpha = 0.5, color='green')
+        # axes[2, 0].set_yticks(range(0, 70000, 5000))
+        # axes[2, 0].legend(['고속국도 사고'])
+        
+        # groups6 = df.groupby(['시도'])['기타'].sum()
+        
+        # axes[2, 1].plot(groups6, alpha = 0.5, color='green')
+        # axes[2, 1].set_yticks(range(0, 15000, 2000))
+        # axes[2, 1].legend(['기타 사고'])
+        
+        # res = plt.show()
+        # return res
