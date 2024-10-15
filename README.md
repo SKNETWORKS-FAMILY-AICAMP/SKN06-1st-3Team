@@ -10,7 +10,7 @@
 SK Networks AI CAMP 6기
 | 성은진 | 박창규 | 공인용 | 김지영 |
 |:----------:|:----------:|:----------:|:----------:|
-|  |  |  |   |
+|  |  |  |(https://github.com/user-attachments/assets/a2ee1d1d-d9d6-4f20-9253-5f5b51a5b189)|
 | [@eunjinn05](https://github.com/eunjinn05) | [@Gumbeng](https://github.com/Gumbeng) | [@k348693](https://github.com/k348693) | [@yeong-ee](https://github.com/yeong-ee) |
 
 ### 프로젝트 개요 🪄
