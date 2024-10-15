@@ -78,7 +78,6 @@
 
 <br/>
 
-<div style="width=500px">
 ```
 bash
 C:.
@@ -155,8 +154,6 @@ C:.
         hyundai_FAQ_ca_an.ipynb
         question.csv
 ```
-        
-</div>
 
 
 <br/>
