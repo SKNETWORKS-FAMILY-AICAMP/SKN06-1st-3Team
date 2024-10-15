@@ -1,6 +1,8 @@
 # SKN06-1st-3Team
 <div align="center">
 
+</div>
+
 # 지역별 교통사고 데이터 조회 시스템
 > **SK Networks AI CAMP 6기** <br/> **개발기간: 2024.10.11 ~ 2024.10.15** 
 
