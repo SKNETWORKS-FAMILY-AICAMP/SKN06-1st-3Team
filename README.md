@@ -34,7 +34,12 @@
 
 <hr>
 
-
 ### 기능 소개 📱
 1) 시도, 시군구별 도로 종류에 따른 교통사고 데이터 조회 시스템 제공
 2) 자동차 제조사 정보 배경 FAQ 조회 시스템 제공
+
+<hr>
+
+### 프로젝트 결과 (최종 Streamlit UI)
+- 메인 페이지
+<img src="https://github.com/user-attachments/assets/039b742f-b2a8-4352-9f75-aaf845f1a99b" alt="메인" />
