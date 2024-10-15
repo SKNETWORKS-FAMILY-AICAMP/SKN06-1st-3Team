@@ -79,7 +79,6 @@
 <br/>
 
 ```
-bash
 C:.
 │  .DS_Store
 │  .gitignore
