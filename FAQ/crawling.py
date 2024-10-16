@@ -4,7 +4,7 @@ import configparser
 # 크롤링
 # Config 파일 읽기
 config = configparser.ConfigParser()
-config.read('config.ini')  # config.ini 파일을 읽음
+config.read('../config.ini')  # config.ini 파일을 읽음
 
 # Config에서 크롤링 설정값 가져오기
 url = config['CRAWLING']['url']

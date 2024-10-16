@@ -7,12 +7,12 @@ CREATE TABLE ACCIDENT (
   si_idx int DEFAULT NULL,
   sigungu_idx int DEFAULT NULL,
   death_idx int DEFAULT NULL,
+  normal_road varchar(10) DEFAULT NULL,
   national_road_province varchar(10) DEFAULT NULL,
   special_metropolitan_city varchar(10) DEFAULT NULL,
   city_county varchar(10) DEFAULT NULL,
   high_speed_national_highway varchar(10) DEFAULT NULL,
   etc varchar(10) DEFAULT NULL,
-  normal_road varchar(10) DEFAULT NULL,
   PRIMARY KEY (accident_idx),
   KEY fk_si_dix (si_idx),
   KEY fk_death_idx (death_idx),
@@ -35,3 +35,21 @@ CREATE TABLE FAQ(
     content TEXT,
     CONSTRAINT fk_category_idx foreign key(category_idx) references Category(category_idx) ON DELETE CASCADE
 );
+
+create table sido (
+	si_idx int primary key auto_increment,
+	location varchar(100) not null
+)
+    
+create table sigungu(
+	sigungu_idx  int auto_increment primary key,
+	sigungu_name varchar(50)  not null,
+    si_idx int,
+    CONSTRAINT fk_sido_idx foreign key(si_idx) references sido(si_idx) ON DELETE CASCADE
+);
+
+create table death_type (
+	d_idx int auto_increment primary key,
+	acc_level  varchar(6) not null
+);
+
