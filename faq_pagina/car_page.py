@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
+import platform
 
 def car_dao():
     props = parser.ConfigParser()  # Parser객체 생성
@@ -51,7 +52,10 @@ def display_accident(car_dao):
 def make_graph_img() :
     plt.figure()        
     df = pd.read_csv("./accident__.csv", header=[1], thousands=',')
-    rc('font', family='AppleGothic')
+    if platform.system() == "Darwin" :
+        rc('font', family='AppleGothic')
+    else :
+        rc('font', family='Malgun Gothic')
 
     f, axes = plt.subplots(3, 2)
     f.set_size_inches((20, 15))
