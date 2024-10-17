@@ -1,7 +1,7 @@
 import pymysql
-from crawling import crawl_data 
-from hyundai_crawl import hyundai_crawl
-from kia import kias
+from .crawling import crawl_data 
+from .hyundai_crawl import hyundai_crawl
+from .kia import kias
 class FAQDao:
     def __init__(self, host:str, port:int, user:str, password:str, db:str):
         self.host = host
