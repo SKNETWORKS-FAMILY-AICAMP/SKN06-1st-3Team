@@ -2,6 +2,44 @@ create database accident;
 
 USE accident;
 
+
+drop table accident;
+drop table faq;
+drop table category;
+drop table sigungu;
+drop table sido;
+drop table death_type;
+
+CREATE TABLE Category(
+	category_idx INT auto_increment PRIMARY KEY,
+    category VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE FAQ(
+	fa_idx INT AUTO_INCREMENT PRIMARY KEY,
+    category_idx INT,
+    title VARCHAR(255), 	
+    content TEXT,
+    CONSTRAINT fk_category_idx foreign key(category_idx) references Category(category_idx) ON DELETE CASCADE
+);
+
+create table sido (
+	si_idx int primary key auto_increment,
+	location varchar(100) not null
+);
+    
+create table sigungu(
+	sigungu_idx  int auto_increment primary key,
+	sigungu_name varchar(50)  not null,
+    si_idx int,
+    CONSTRAINT fk_sido_idx foreign key(si_idx) references sido(si_idx) ON DELETE CASCADE
+);
+
+create table death_type (
+	d_idx int auto_increment primary key,
+	acc_level  varchar(6) not null
+);
+
 CREATE TABLE ACCIDENT (
   accident_idx int NOT NULL AUTO_INCREMENT,
   si_idx int DEFAULT NULL,
@@ -21,35 +59,3 @@ CREATE TABLE ACCIDENT (
   CONSTRAINT fk_death_idx FOREIGN KEY (death_idx) REFERENCES death_type (d_idx) ON DELETE CASCADE,
   CONSTRAINT fk_si_dix FOREIGN KEY (si_idx) REFERENCES sido (si_idx) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-CREATE TABLE Category(
-	category_idx INT auto_increment PRIMARY KEY,
-    category VARCHAR(100) UNIQUE
-);
-
-CREATE TABLE FAQ(
-	fa_idx INT AUTO_INCREMENT PRIMARY KEY,
-    category_idx INT,
-    title VARCHAR(255), 	
-    content TEXT,
-    CONSTRAINT fk_category_idx foreign key(category_idx) references Category(category_idx) ON DELETE CASCADE
-);
-
-create table sido (
-	si_idx int primary key auto_increment,
-	location varchar(100) not null
-)
-    
-create table sigungu(
-	sigungu_idx  int auto_increment primary key,
-	sigungu_name varchar(50)  not null,
-    si_idx int,
-    CONSTRAINT fk_sido_idx foreign key(si_idx) references sido(si_idx) ON DELETE CASCADE
-);
-
-create table death_type (
-	d_idx int auto_increment primary key,
-	acc_level  varchar(6) not null
-);
-
