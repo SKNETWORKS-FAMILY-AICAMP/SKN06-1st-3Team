@@ -80,73 +80,66 @@
 
 ```
 C:.
-│  .DS_Store
-│  .gitignore
-│  accdent_sido.sql
-│  accident.csv
-│  accident__.csv
-│  accident테이블.sql
-│  app.py
-│  config.ini
-│  db accident_table category.sql
-│  faq_data.py
-│  graph.png
-│  LICENSE
-│  README.md
-│  requirements.txt
-│  시군구.sql
-│
-├─.ipynb_checkpoints
-│      app-checkpoint.py
-│      config-checkpoint.ini
-│
-├─accident
-│  │  accident.ipynb
-│  │  accident_class.py
-│  │  untitled.txt
-│  │
-│  ├─.ipynb_checkpoints
-│  │      accident-checkpoint.ipynb
-│  │      accident_class-checkpoint.py
-│  │      untitled-checkpoint.txt
-│  │
-│  └─__pycache__
-│          accident_class.cpython-312.pyc
-│
-├─FAQ
-│  │  crawling.py
-│  │  faq_class.py
-│  │  genesis_faq.py
-│  │  hyundai_crawl.py
-│  │  kia.py
-│  │  requirements.txt
-│  │  test.ipynb
-│  │
-│  ├─.ipynb_checkpoints
-│  │      crawling-checkpoint.py
-│  │      faq_class-checkpoint.py
-│  │      hyundai_crawl-checkpoint.py
-│  │      kia-checkpoint.py
-│  │      requirements-checkpoint.txt
-│  │
-│  └─__pycache__
-│          crawling.cpython-312.pyc
-│          faq_class.cpython-312.pyc
-│          hyundai_crawl.cpython-312.pyc
-│          kia.cpython-312.pyc
-│
-├─faq_pagina
-│  │  car_page.py
-│  │  faq_pagination.py
-│  │
-│  ├─.ipynb_checkpoints
-│  │      faq_pagination-checkpoint.py
-│  │
-│  └─__pycache__
-│          car_page.cpython-312.pyc
-│          faq_pagination.cpython-312.pyc
-│
-└─hyundai_faq
+|   .DS_Store
+|   .gitignore
+|   accident.csv
+|   accident_data.py
+|   accident__.csv
+|   accident테이블.sql
+|   app.py
+|   config.ini
+|   faq_data.py
+|   graph.png
+|   LICENSE
+|   README.md
+|
++---.ipynb_checkpoints
+|       accident-checkpoint.csv
+|       accident_data-checkpoint.py
+|       accident테이블-checkpoint.sql
+|       faq_data-checkpoint.py
+|       README-checkpoint.md
+|
++---accident
+|   |   accident.ipynb
+|   |   accident_class.py
+|   |
+|   +---.ipynb_checkpoints
+|   |       accident-checkpoint.ipynb
+|   |
+|   \---__pycache__
+|           accident_class.cpython-312.pyc
+|
++---FAQ
+|   |   crawling.py
+|   |   faq_class.py
+|   |   genesis_faq.py
+|   |   hyundai_crawl.py
+|   |   kia.py
+|   |   requirements.txt
+|   |   test.ipynb
+|   |
+|   +---.ipynb_checkpoints
+|   |       faq_class-checkpoint.py
+|   |
+|   \---__pycache__
+|           crawling.cpython-312.pyc
+|           faq_class.cpython-312.pyc
+|           hyundai_crawl.cpython-312.pyc
+|           kia.cpython-312.pyc
+|
++---faq_pagina
+|   |   car_page.py
+|   |   faq_pagination.py
+|   |
+|   +---.ipynb_checkpoints
+|   |       faq_pagination-checkpoint.py
+|   |
+|   \---__pycache__
+|           car_page.cpython-312.pyc
+|           faq_pagination.cpython-312.pyc
+|
+\---hyundai_faq
         answer.csv
         category.csv
         crawl.py
